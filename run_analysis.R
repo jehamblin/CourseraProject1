@@ -1,7 +1,7 @@
 library(reshape2)
 
-# open labels file
-setwd("~/My Dropbox/Coursera/Getting and Cleaning Data/Getting and Cleaning Data Project/CourseraProject1")
+# set working directory
+setwd("~/GitHub/CourseraProject1")
 
 # get header names from features.txt
 headers <- read.table("UCI HAR Dataset/features.txt")
@@ -34,7 +34,7 @@ testSub <- read.table("UCI HAR Dataset/test/subject_test.txt",col.names=c("Subje
 trainSub <- read.table("UCI HAR Dataset/train/subject_train.txt",col.names=c("Subject ID"))
 mergedSub <- rbind(testSub,trainSub)
 
-# merged the test and train data, and add the "activity label" column
+# merge the test and train data, and add the "activity label" column
 meanMergedData <- cbind(rbind(meanTestData,meanTrainData),mergedSub)
 meanMergedData$Activity <- mergedY
 stdMergedData <- cbind(rbind(stdTestData,stdTrainData),mergedSub)
